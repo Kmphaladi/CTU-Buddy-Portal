@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Portal Timetable</title>
+    <style>
+        @font-face {
+            font-family: "customfont";
+            src: url(MADE\ Sunflower\ PERSONAL\ USE.otf);
+        }
+        @font-face {
+            font-family: "my-font";
+            src: url(Recoleta-RegularDEMO.otf);
+        }
+        body {
+            font-family: "my-font", serif;
+            background-color: #E5B2C3;
+            padding: 0;
+            text-align: justify;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #fff;
+            margin:0;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            padding:0;
+            margin:0;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        ul li a {
+            font-family: "my-font", serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 21px;
+            padding: 10px 15px;
+        }
+
+        .navigation li:hover {
+            text-decoration: underline;
+        }
+
+        .contactbtn {
+            font-family: "my-font", serif;
+            background-color: #d6f947;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 40px;
+        }
+
+        .contactbtn:hover {
+            background-color: #666;
+            color: white;
+        }
+
+        .timetable-container {  
+            border-radius: 20px;       
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .timetable-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 50px 20px;
+            background-size: cover;
+            background-position: center;
+            font-size: x-large;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 50px 20px;
+            font-size: x-large;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            border-radius: 20px; 
+            overflow: hidden;
+
+        }
+        
+        .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 36px;
+            z-index: 10;
+        }
+
+        .slides {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            border-radius: 20px;
+            height:300px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .active {
+            display: block;
+        }
+
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #0073e6;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        @media screen and (max-width: 768px) {
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+        footer {
+            width: 100%;
+            background: #3586ff;
+            padding: 15px 10px;
+            position: relative; 
+            text-align: center;
+            margin-top: 0px;
+            margin:0;
+        }
+
+        footer .social_icons,
+        footer .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        footer .social_icons li,
+        footer .menu li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        footer .menu li a {
+            color: #fff;
+            font-size: 19px;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.5s;
+        }
+
+        footer .menu li a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        footer p {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 17.6px;
+        }
+        footer .contact_info{
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            float: top;
+        }
+        footer .page_num{
+            color:#fff;
+        }
+        .symbols{
+            font-family: arial, sans-serif;
+            color:#fff;
+        }
+        h3{
+            font-size: medium;
+            color:#f9f9f9;
+            font-family: "my-font", serif;
+            text-align: center;
+            margin-bottom:5px;
+            font-size: 17px;
+        }
+        @media screen and (max-width: 768px) {
+            ul {
+                flex-direction: column; 
+                align-items: center;
+            }
+            th, td {
+                padding: 8px;
+                font-size: 14px;
+            }
+            .overlay-text {
+                font-size: 24px; 
+            }
+            .contactbtn {
+                margin-right: 20px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="demo2.html"><img src="city-technology-university-high-resolution-logo-black-transparent.png" width="360px" height="70px"></a>
+            </div>
+            <div class="navigation">
+            <ul>
+                <li><a href="Home Page.html">Home</a></li>
+                <li><a href="TimeTable Page.html">Timetable</a></li>
+                <li><a href="Discussions Page.html">Discussion</a></li>
+                <li><a href="ShareResources Page.html">Share Resources</a></li>
+                <li><a href="About us page.html">About Us</a></li>
+            </ul>
+        </div>
+            <a href="ContactUs page.html"><button class="contactbtn">Contact Us</button></a>
+        </nav>
+    </header><br><br><br>
+    
+    <section class="timetable-container">
+        <div class="slideshow-container">
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <div class="overlay-text">
+                <h1>CTU-Buddy Timetable</h1>
+            </div>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb.jpg" alt="Slide 1">
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb2.jpg" alt="Slide 2">
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb3.jpg" alt="Slide 3">
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb4.jpg" alt="Slide 4">
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb5.jpg" alt="Slide 5">
+            </div>
+        </div>
+
+        <div class="slides fade">
+            <div class="slide">
+                <img src="tabb7.jpg" alt="Slide 6">
+            </div>
+        <div>
+     </div>
+     </div> 
+     </div>     
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:00 AM - 09:00 AM</td>
+                    <td>Computer Science</td>
+                    <td></td>
+                    <td>Mathematics</td>
+                    <td>Code Web development</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>09:00 AM - 10:00 AM</td>
+                    <td></td>
+                    <td>Computer Science</td>
+                    <td></td>
+                    <td>Microsoft Azure Databases</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>Ethics Architecture</td>
+                    <td></td>
+                    <td></td>
+                    <td>Network Architecture</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>11:00 AM - 12:00 PM</td>
+                    <td></td>
+                    <td>Digital literacy</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Robotics Development</td>
+                </tr>
+                <tr>
+                    <td>12:00 PM - 01:00 PM</td>
+                    <td>Gym</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Programming with Python</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>01:00 PM - 02:00 PM</td>
+                    <td></td>
+                    <td></td>
+                    <td>Programming with Python</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>02:00 PM - 03:00 PM</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Computer Architecture</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>03:00 PM - 04:00 PM</td>
+                    <td></td>
+                    <td>Digital Literacy</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Gym</td>
+                </tr>
+                <tr>
+                    <td>04:00 PM - 05:00 PM</td>
+                    <td></td>
+                    <td></td>
+                    <td>Sports</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>05:00 PM - 06:00 PM</td>
+                    <td>Networking Architecture</td>
+                    <td>Ethics Architecture</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+        </table>
+    </section><br><br><br>
+
+
+    <footer>
+    <div><h3>ALGORITHM AVENGERS</h3></div>
+        <ul class="social_icons">
+            <li><a href="https://instagram.com"><img src="icons8-instagram-94.png" width="30px" height="30px" alt="Instagram"></a></li>
+            <li><a href="https://facebook.com"><img src="icons8-facebook-48.png" width="30px" height="30px" alt="Facebook"></a></li>
+            <li><a href="https://youtube.com"><img src="icons8-youtube-48.png" width="30px" height="30px" alt="YouTube"></a></li>
+            <li><a href="https://twitter.com"><img src="icons8-twitterx-50.png" width="30px" height="30px" alt="Twitter"></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="Home Page.html">Home</a></li>
+            <li><a href="TimeTable Page.html">Timetable</a></li>
+            <li><a href="Discussions Page.html">Discussion</a></li>
+            <li><a href="ShareResources Page.html">Share Resources</a></li>
+            <li><a href="About us page.html">About Us</a></li>
+            <li><a href="ContactUs page.html">Contact Us</a></li>
+        </ul>
+        <div class="contact_info">
+            <p>Contact info<br>
+               +211 954 6583<br>
+               Inquires@CTUTechnologies.com
+            </p>
+        </div>
+        <div class="symbols">&#169;</div>
+        <p>City Technology University 2024. All Rights Reserved.</p>
+        <div class="page_num"><h3>2</h3></div>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function plusSlides(n) {
+            slideIndex += n;
+            showSlides();
+        }
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            slides[slideIndex].style.display = "block";  
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Portal Discussion</title>
+    <style>
+        @font-face {
+            font-family: "customfont";
+            src: url(MADE\ Sunflower\ PERSONAL\ USE.otf);
+        }
+        @font-face {
+            font-family: "my-font";
+            src: url(Recoleta-RegularDEMO.otf);
+        }
+        @font-face {
+            font-family: "logo-font";
+            src: url(Sacramento.ttf);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-size: 16px; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            padding: 10px 2%;
+            z-index: 1000;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-family: "logo-font", serif;
+            font-size: 24px;
+            font-weight: bold;
+            max-width: 100%;
+            height: auto; 
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap; 
+            gap: 20px;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        ul li a {
+            font-family: "my-font", serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 21px;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navigation li:hover a {
+            text-decoration: underline;
+        }
+
+        .contactbtn {
+            font-family: "my-font", serif;
+            background-color: #d6f947;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            color: black;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 40px;
+            padding: 15px 20px;
+            font-size: 1em;
+        }
+
+        .contactbtn:hover {
+            background-color: #666;
+            color: white;
+        }
+
+        .mainpicture {
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            display: flex;
+            margin:0;
+            padding:0;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .mainpicture video {
+            width: 100%;
+            height: auto;
+            object-fit: cover; 
+        }
+        footer {
+            width: 100%;
+            background: #3586ff;
+            position: relative; 
+            text-align: center;
+            margin-top: 0px;
+            
+        }
+
+        footer .social_icons,
+        footer .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        footer .social_icons li,
+        footer .menu li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        footer .menu li a {
+            color: #fff;
+            font-size: 19px;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.5s;
+            margin-bottom: 10px;
+        }
+
+        footer .menu li a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        footer p {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 17.6px;
+        }
+        footer .contact_info{
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            float: top;
+        }
+        footer .page_num{
+            color:#fff;
+        }
+        .symbols{
+            font-family: arial, sans-serif;
+            color:#fff;
+        }
+        .container { 
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 90%;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message, .comment {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .message {
+            border-left: 5px solid #4CAF50;
+        }
+        .comment {
+            margin-left: 20px;
+            border-left: 5px solid #2196F3;
+        }
+        .timestamp {
+            font-size: 0.8em;
+            color: #888;
+        }
+        h3{
+            font-size: medium;
+            color:#f9f9f9;
+            font-family: "my-font", serif;
+            text-align: center;
+            margin-bottom:5px;
+            font-size: 17px;
+        }
+    @media screen and (max-width: 768px) {
+        ul {
+            flex-direction: column;
+            align-items: center;
+    }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+    }
+
+        .contactbtn {
+            margin-right: 0;
+            margin-top: 10px;
+            width: 100%;
+    }
+
+        .message, .comment {
+            font-size: 1em;
+    }
+}
+
+    @media screen and (max-width: 480px) {
+        header {
+            padding: 10px;
+    }
+
+        .navigation ul {
+            gap: 10px;
+    }
+
+        footer .menu, footer .social_icons {
+            gap: 5px;
+            flex-direction: column;
+    }
+}
+    </style>
+</head>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="Discussions Page.html"><img src="city-technology-university-high-resolution-logo-black-transparent.png" width="360px" height="70px" alt="University Logo"></a>
+            </div>
+            <div class="navigation">
+            <ul>
+                <li><a href="Home Page.html">Home</a></li>
+                <li><a href="TimeTable Page.html">Timetable</a></li>
+                <li><a href="Discussions Page.html">Discussion</a></li>
+                <li><a href="ShareResources Page.html">Share Resources</a></li>
+                <li><a href="About us page.html">About Us</a></li>
+            </ul>
+        </div>
+            <a href="ContactUs page.html"><button class="contactbtn">Contact Us</button></a>
+        </nav>
+    </header>
+    
+
+    <div class="mainpicture">
+        <video autoplay loop muted src="discussvid.mp4" alt="Discussion video"></video>
+    </div>
+    <body> 
+    <div class="container">
+        <h1>Message Board</h1>
+        <form id="messageForm">
+        <textarea id="messageContent" rows="4" placeholder="Write your message here..." required></textarea>
+        <button type="submit">Post Message</button>
+        </form>
+        <div id="messages"></div>
+        </div>
+         
+            <script>
+                function loadMessages() {
+                    fetch('message_board.php?action=getMessages')
+                        .then(response => response.json())
+                        .then(data => {
+                            const messagesDiv = document.getElementById('messages');
+                            messagesDiv.innerHTML = '';
+                            data.forEach(message => {
+                                const messageDiv = document.createElement('div');
+                                messageDiv.className = 'message';
+                                messageDiv.innerHTML = `
+        <p>${message.content}</p>
+        <p class="timestamp">Posted on ${message.timestamp}</p>
+        <form class="commentForm">
+        <textarea rows="2" placeholder="Write a comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+        </form>
+        <div class="comments"></div>
+                                `;
+                                messagesDiv.appendChild(messageDiv);
+         
+                                const commentForm = messageDiv.querySelector('.commentForm');
+                                commentForm.addEventListener('submit', function(e) {
+                                    e.preventDefault();
+                                    const commentContent = this.querySelector('textarea').value;
+                                    postComment(message.id, commentContent, messageDiv);
+                                });
+         
+                                loadComments(message.id, messageDiv.querySelector('.comments'));
+                            });
+                        });
+                }
+         
+                function postMessage(content) {
+                    fetch('message_board.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `action=postMessage&content=${encodeURIComponent(content)}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            document.getElementById('messageContent').value = '';
+                            loadMessages();
+                        } else {
+                            alert('Error posting message');
+                        }
+                    });
+                }
+         
+                function postComment(messageId, content, messageDiv) {
+                    fetch('message_board.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: `action=postComment&messageId=${messageId}&content=${encodeURIComponent(content)}`
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            messageDiv.querySelector('.commentForm textarea').value = '';
+                            loadComments(messageId, messageDiv.querySelector('.comments'));
+                        } else {
+                            alert('Error posting comment');
+                        }
+                    });
+                }
+         
+                function loadComments(messageId, commentsDiv) {
+                    fetch(`message_board.php?action=getComments&messageId=${messageId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            commentsDiv.innerHTML = '';
+                            data.forEach(comment => {
+                                const commentDiv = document.createElement('div');
+                                commentDiv.className = 'comment';
+                                commentDiv.innerHTML = `
+        <p>${comment.content}</p>
+        <p class="timestamp">Posted on ${comment.timestamp}</p>
+                                `;
+                                commentsDiv.appendChild(commentDiv);
+                            });
+                        });
+                }
+         
+                document.getElementById('messageForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const content = document.getElementById('messageContent').value;
+                    postMessage(content);
+                });
+         
+                loadMessages();
+        </script>
+
+    <script>
+        const discussions = []; 
+        document.getElementById('postBtn').addEventListener('click', function() {
+            const username = document.getElementById('username').value.trim();
+            const comment = document.getElementById('comment').value.trim();
+
+            if (!username || !comment) {
+                alert('Please enter your name and a question/comment.');
+                return;
+            }
+
+            const newDiscussion = {
+                id: discussions.length + 1,  
+                username: username,
+                comment: comment,
+                responses: []  
+            };
+            discussions.push(newDiscussion);  
+            document.getElementById('username').value = '';  
+            document.getElementById('comment').value = '';
+
+            updateDiscussionList();  
+        });
+
+        function updateDiscussionList() {
+            const discussionList = document.getElementById('discussionList');
+            discussionList.innerHTML = ''; 
+
+            discussions.forEach(discussion => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <div class="comment-header">${discussion.username} posted:</div>
+                    <div class="comment-text">${discussion.comment}</div>
+                    <div class="response-section">
+                        <input type="text" placeholder="Write a response..." class="responseInput" data-id="${discussion.id}">
+                        <button class="responseBtn" data-id="${discussion.id}">Respond</button>
+                    </div>
+                    <ul class="responses" id="responses-${discussion.id}">
+                    </ul>
+                `;
+
+                discussionList.appendChild(listItem);
+            });
+
+            document.querySelectorAll('.responseBtn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const discussionId = this.getAttribute('data-id');
+                    const responseInput = document.querySelector(`.responseInput[data-id="${discussionId}"]`);
+                    const responseText = responseInput.value.trim();
+
+                    if (!responseText) {
+                        alert('Please write a response before submitting.');
+                        return;
+                    }
+                    const discussion = discussions.find(d => d.id == discussionId);
+                    discussion.responses.push(responseText);  
+
+                    responseInput.value = ''; 
+                    updateResponses(discussionId);  
+                });
+            });
+        }
+
+        function updateResponses(discussionId) {
+            const discussion = discussions.find(d => d.id == discussionId);
+            const responseList = document.getElementById(`responses-${discussionId}`);
+
+            responseList.innerHTML = ''; 
+
+            discussion.responses.forEach(response => {
+                const responseItem = document.createElement('li');
+                responseItem.textContent = response;
+                responseList.appendChild(responseItem);
+            });
+        }
+    </script>
+    </body><br><br><br>
+
+    <footer>
+    <div><h3>ALGORITHM AVENGERS</h3></div>
+        <ul class="social_icons">
+            <li><a href="https://instagram.com"><img src="icons8-instagram-94.png" width="30px" height="30px" alt="Instagram"></a></li>
+            <li><a href="https://facebook.com"><img src="icons8-facebook-48.png" width="30px" height="30px" alt="Facebook"></a></li>
+            <li><a href="https://youtube.com"><img src="icons8-youtube-48.png" width="30px" height="30px" alt="YouTube"></a></li>
+            <li><a href="https://twitter.com"><img src="icons8-twitterx-50.png" width="30px" height="30px" alt="Twitter"></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="Home Page.html">Home</a></li>
+            <li><a href="TimeTable Page.html">Timetable</a></li>
+            <li><a href="Discussions Page.html">Discussion</a></li>
+            <li><a href="ShareResources Page.html">Share Resources</a></li>
+            <li><a href="About us page.html">About Us</a></li>
+            <li><a href="ContactUs page.html">Contact Us</a></li>
+        </ul>
+        <div class="contact_info">
+            <p>Contact info<br>
+               +211 954 6583<br>
+               Inquires@CTUTechnologies.com
+            </p>
+        </div>
+        <div class="symbols">&#169;</div>
+        <p>City Technology University 2024. All Rights Reserved.</p>
+        <div class="page_num"><h3>3</h3></div>
+    </footer>
+
+</html>

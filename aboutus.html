@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Portal About Us</title>
+    <style>
+        @font-face {
+            font-family: "customfont";
+            src: url(MADE\ Sunflower\ PERSONAL\ USE.otf);
+        }
+        @font-face {
+            font-family: "my-font";
+            src: url(Recoleta-RegularDEMO.otf);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            font-family: "my-font", serif;
+            display: flex;
+            align-items: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width:100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+        }
+
+        .logo {
+            font-family: "logo-font", serif;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        ul li a {
+            font-family: "my-font", serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 21px;
+            padding: 10px 15px;
+        }
+
+        .navigation li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .contactbtn {
+            font-family: "my-font", serif;
+            background-color: #d6f947;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 40px;
+        }
+
+        .contactbtn:hover {
+            background-color: #666;
+            color: white;
+        }
+
+        .content {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-image: url("Screenshot\ 2024-08-22\ 003353.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .content h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .content h2 {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .content p {
+            font-size: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .Greetings{
+            animation: greets 3s ease-out forwards
+        }
+        @keyframes greets {
+            0%{
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50%{
+                opacity: 1;
+                transform: scale(3);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .Developers {
+            box-sizing: border-box;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .Dev_heading {
+            font-family: "customfont", serif;
+            text-align: center;
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+       .organogram-container {
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        .organogram {
+            width: 100%;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: center;
+            
+        }
+        .organogram strong{
+            font-family: "customfont", serif;
+        }
+        .organogram em{
+            color: rgb(52, 164, 52);
+        }
+        .organogram th, .organogram td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .organogram th {
+            background-color: #f0f0f0;
+            color: white;
+        }
+
+        .organogram td {
+            background-color: whitesmoke;
+        }
+
+        .organogram tr:hover {
+            cursor: pointer;
+            background-color: #303d77;
+        }
+
+        .organogram img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .Reviews {
+            background-color: #28282B;
+            color: #fff;
+            margin: 175px auto; 
+            text-align: center;
+            border-radius: 30px;
+            width: 80%;
+            align-items: center;
+            margin-top: 50px; 
+            margin-bottom: 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-image img {
+            border-radius: 50%;
+            background-color: #ccc;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .testimonial-text {
+            margin: 20px 0;
+            margin-left: 400px;
+            margin-right: 400px;
+        }
+
+        .testimonial-text p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .testimonial-name {
+            font-style: italic;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .testimonial-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .testimonial-navigation button{
+            font-size: 25px;
+            border-radius: 20px;
+            background-color: white;
+        }
+        
+        .testimonial-navigation button:hover{
+            background-color: gainsboro;
+        }
+
+        .Reviews_heading {
+            font-family: "customfont",serif;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .star-rating {
+            font-size: 24px;
+            color: #FFD700; 
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .testimonial div:hover .star-rating {
+            display: block;
+            animation: displayStars 0.5s ease-in-out forwards;
+
+        }
+
+        @keyframes displayStars {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        }
+
+        footer {
+            width: 100%;
+            background: #3586ff;
+            padding: 15px 10px;
+            position: relative; 
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        footer .social_icons,
+        footer .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        footer .social_icons li,
+        footer .menu li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        footer .menu li a {
+            color: #fff;
+            font-size: 19px;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.5s;
+        }
+
+        footer .menu li a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        footer p {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 17.6px;
+        }
+        footer .contact_info{
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            float: top;
+        }
+        footer .page_num{
+            color:#fff;
+        }
+        .symbols{
+            font-family: arial, sans-serif;
+            color:#fff;
+        }
+        h3{
+            font-size: medium;
+            color:#f9f9f9;
+            font-family: "my-font", serif;
+            text-align: center;
+            margin-bottom:5px;
+            font-size: 17px;
+        }
+           
+        @media screen and (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        ul {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contactbtn {
+            width: 100%;
+            text-align: center;
+        }
+
+        .mainpicture video {
+            height: 300px;
+        }
+}
+
+      @media screen and (max-width: 480px) {
+        header {
+            padding: 10px;
+        }
+
+        footer .menu,
+        footer .social_icons {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        footer p,
+        .contact_info {
+            font-size: 0.9rem;
+        }
+
+        button {
+            font-size: 1rem;
+            width: 100%;
+        }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="About us page.html"><img src="city-technology-university-high-resolution-logo-black-transparent.png" width="360px" height="70px"></a>
+            </div>
+            <div class="navigation">
+            <ul>
+                <li><a href="Home Page.html">Home</a></li>
+                <li><a href="TimeTable Page.html">Timetable</a></li>
+                <li><a href="Discussions Page.html">Discussion</a></li>
+                <li><a href="ShareResources Page.html">Share Resources</a></li>
+                <li><a href="About us page.html">About Us</a></li>
+            </ul>
+        </div>
+            <a href="ContactUs page.html"><button class="contactbtn">Contact Us</button></a>
+        </nav>
+    </header>
+    <div class="container">
+    <div class="content">
+        <div>
+          <h1 class="Greetings">Hi There!</h1>
+          <h2 class="Introduction">We are the Algorithm Avengers</h2>
+          <p class="Project_descript">
+            We are a team of 3 coders that has come up with this easy to use, and safe buddy portal that will make the students of City Technology University experience better and more exciting. This portal allows each student to share and recieve resource with each other as well as discuss their academic opinions and knowledge. We hope that you love the unique features as our team has worked hard in giving you, a portal experience like no other.  
+          </p>
+        </div>
+    </div>
+    <div class="Developers">
+        <h1 class="Dev_heading">Meet The Team</h1>
+        <div class="organogram-container">
+                <table class="organogram">
+                    <tr data-member="1">
+                        <td colspan="3">
+                            <img src="WhatsApp Image 2024-09-29 at 22.37.09_bbe80534.jpg" alt="Picture of Kamogelo"><br>
+                            <strong>Lead Developer & Quality assurer</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Kamogelo Phaladi<br><em>20240731@ctucareer.co.za</em><br>
+                            <p>Greetings, I am Kamogelo Phaladi. I created the user interface for CTU-Buddy, focusing on an immersive
+                                experience and introducing the development team on this page. As a team leader, I played a crucial 
+                                role in shaping the overall look and feel of the CTU-Buddy website. I was ideally responsible for designing the Home and About Us pages, crafting the logo, and
+                                ensuring a consistent aesthetic across the entire platform. I also took charge of the navigation and footer design, ensuring that the user experience was seamless 
+                                and intuitive. As the leader, I also made adjustments to maintain the high quality and visual appeal of the site, as well as debugging and reviewing the entire project.</p>
+                        </td>
+                    </tr>
+                    <tr data-member="2">
+                        <td colspan="3">
+                            <img src="WhatsApp Image 2024-08-23 at 09.49.00_0a6a1ee1.jpg" alt="Picture of Fortune"><br>
+                            <strong>Front and Backend Developer</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Fortune Nekokwane<br><em>20240802@ctucareer.co.za</em><br>
+                            <p>Hello, I am Fortune Nekokwane. I contributed to the communication features and developed a safe space for sharing resources to enhance your learning experience. 
+                                I took charge of developing two of the platform's most interactive features: the Share Resources and Discussion pages. I ensured that users 
+                                could share materials and engage in academic discussions without hassle. I also played a crucial role in the functionality of these unique features.
+                                Beyond design, I worked on debugging to ensure all features were working smoothly, contributing to both the functionality and aesthetic of the project.</p>
+                        </td>
+                    </tr>
+                    <tr data-member="3">
+                        <td colspan="3">
+                            <img src="WhatsApp Image 2024-08-23 at 10.12.55_9c60dcf2.jpg" alt="Picture of Karabo"><br>
+                            <strong>Database Administrator & Front and Backend Developer</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">Karabo Siko<br><em>20240965@ctucareer.co.za</em><br>
+                            <p>Hi, I am Karabo Siko. I have created the Timetable and Contact Us pages to allow you to stay organised and focused, as well as contact us if you have inquiries or comments 
+                                on your portal experience. I focused on creating the Timetable and Contact Us pages—two critical elements of the CTU-Buddy platform. I also ensured the timetable was both clear and responsive,
+                                allowing students to easily manage their weekly schedules. On the Contact Us page, I added features like a form for student inquiries,subscription option and a map for campus navigation . I also contributed creative 
+                                ideas and worked alongside the team on debugging to ensure the website remained functional and visually consistent. I was also honoured enough to manage the software of the website to ensure that data inputted is securely store.
+                                Helping to keeping track of changes.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+<div class="Reviews">
+    <div class="Reviews_heading"><br><h1>Student Testimonials</h1></div>
+    <div class="testimonial" id="testimonial-1">
+        <div class="testimonial-image">
+            <img src="Kob.jpeg" alt="Testimonial 1 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"Just Amazing. I have better time management skills because of the Timetable feature, missing class or an assignment is no longer a problem I have to worry about. Although sharing resources is my favourite feature as I have found many documents which summaries things I may not understand."</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Koby Mathews, SOFTWARE ENGINEER (PRETORIA)</p>
+        </div>
+    </div>
+
+    <div class="testimonial" id="testimonial-2" style="display: none;">
+        <div class="testimonial-image">
+            <img src="download (1).jpeg" alt="Testimonial 2 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"Studies have never been the same again. My knowledge is no longer limited to the textbooks and  class slides because of the sharing resource feature which has allowed many of my friends and I to expand our knowledge about certain topics."</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Abel Mackenzie, SOFTWARE DEVELOPMENT (ROODEPOORT)
+        </div>
+    </div>
+
+    <div class="testimonial" id="testimonial-3" style="display: none;">
+        <div class="testimonial-image">
+            <img src="9fd90881-97c5-40f0-b7ef-34dde78b8b9f.jpeg" alt="Testimonial 3 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"Have made so many friends. Because of the discussion features I have gained a number of new friends which is now my study group, as well as a sense of assurance that even if I might be stuck with something, there is always someone willing to assist as much as they can even if it's not in person."</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Laurel Knight, GAME DEVELOPMENT (CRESTA)</p>
+        </div>
+    </div>
+
+    <div class="testimonial" id="testimonial-4" style="display: none;">
+        <div class="testimonial-image">
+            <img src="fa03eb72-d708-4007-9700-23fbd512a5c1.jpeg" alt="Testimonial 4 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"The student portal has completely transformed the way I manage my studies. The interface is user-friendly, and the timetable feature ensures I never miss a class or assignment deadline. The resource-sharing section is fantastic — I've found so many helpful documents that simplify complex topics. It’s like having a personal academic assistant!"</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Yuki Kang, CYBER SECURITY (ROODEPOORT)
+        </div>
+    </div>
+
+    <div class="testimonial" id="testimonial-5" style="display: none;">
+        <div class="testimonial-image">
+            <img src="eilana.jpeg" alt="Testimonial 5 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"What I love most about this portal is how easy it is to navigate. The discussion forums have helped me connect with other students and share insights on difficult subjects. It's not just about studying; it's about building a learning community. Highly recommend it to anyone wanting to enhance their academic experience!"</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Eliana Caddel, PROGRAMMING FOUNDATION (CAPE TOWN)
+        </div>
+    </div>
+    
+    <div class="testimonial" id="testimonial-6" style="display: none;">
+        <div class="testimonial-image">
+            <img src="1e08c101-c0a8-40bd-acc7-f4a05f3e1a5e.jpeg" alt="Testimonial 6 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"This portal is everything a student needs in one place! The clean interface makes it easy to access class notes, discuss topics with peers, and stay updated on important announcements. The resource-sharing feature is a big plus, and it really feels like a supportive academic environment."</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name"> Ram Bakshi, CYBER ENGINEERING (DURBAN)
+        </div>
+    </div>
+
+    <div class="testimonial" id="testimonial-7" style="display: none;">
+        <div class="testimonial-image">
+            <img src="gael.jpeg" alt="Testimonial 7 Image">
+        </div>
+        <div class="testimonial-text">
+            <p>"This portal has revolutionized the way I interact with my academic life. The discussion boards allow for meaningful engagement with classmates, and the variety of shared resources has enriched my study sessions. It’s a one-stop shop for all my academic needs!"</p>
+            <div class="star-rating">★★★★★</div>
+            <p class="testimonial-name">Gael Carmans, INFORMATION TECHNOLOGY (MENLYN)
+        </div>
+    </div>
+
+    <div class="testimonial-navigation">
+        <button class="nav-btn prev-btn">&lt;</button>
+        <button class="nav-btn next-btn">&gt;</button>
+    </div><br><br><br><br>
+</div>
+</div>
+
+
+<footer>
+    <div><h3>ALGORITHM AVENGERS</h3></div>
+        <ul class="social_icons">
+            <li><a href="https://instagram.com"><img src="icons8-instagram-94.png" width="30px" height="30px"></a></li>
+            <li><a href="https://facebook.com"><img src="icons8-facebook-48.png" width="30px" height="30px"></a></li>
+            <li><a href="https://youtube.com"><img src="icons8-youtube-48.png" width="30px" height="30px"></a></li>
+            <li><a href="https://twitter.com"><img src="icons8-twitterx-50.png" width="30px" height="30px"></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="Home Page.html">Home</a></li>
+            <li><a href="TimeTable Page.html">Timetable</a></li>
+            <li><a href="Discussions Page.html">Discussion</a></li>
+            <li><a href="ShareResources Page.html">Share Resources</a></li>
+            <li><a href="About us page.html">About Us</a></li>
+            <li><a href="ContactUs page.html">Contact Us</a></li>
+        </ul>
+        <div class="contact_info"><p> Contact info<br>
+            +211 954 6583<br>
+            Inquires@CTUTechnologies.com
+         </p></div>
+         <div class="symbols">&#169;</div> <p>City Technology University 2024. All Rights Reserved.</p>
+        <div class="page_num"><h3>5</h3></div>
+    </footer>
+
+    <script>
+
+       const testimonials = document.querySelectorAll('.testimonial');
+        let currentTestimonial = 0;
+    
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+    
+        function showTestimonial(index){
+            testimonials.forEach((testimonial, i) => {
+                if (i === index) {
+                    testimonial.style.display = 'flex';
+                } else {
+                    testimonial.style.display = 'none';
+                }
+            });
+        }
+ 
+        nextBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+    
+        prevBtn.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        });
+    
+        showTestimonial(currentTestimonial);
+    </script>
+</body>
+</html>

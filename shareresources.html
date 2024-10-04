@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddy Portal ShareResources</title>
+    <style>
+        @font-face {
+            font-family: "customfont";
+            src: url(MADE\ Sunflower\ PERSONAL\ USE.otf);
+        }
+        @font-face {
+            font-family: "my-font";
+            src: url(Recoleta-RegularDEMO.otf);
+        }
+        body {
+            box-sizing: border-box;
+            background-image: url(Samsung\ Card\ Character\ Branding.jpg);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0 auto;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+
+        header {
+            background-color: #fff;
+            margin:0;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100%;
+            height: 80px;
+        }
+
+        .logo {
+            font-family: "logo-font", serif;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin:0;
+            padding:0;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        ul li a {
+            font-family: "my-font", serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 21px;
+            padding: 10px 15px;
+        }
+
+        .navigation li:hover {
+            text-decoration: underline;
+        }
+
+        .contactbtn {
+            font-family: "my-font", serif;
+            background-color: #d6f947;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 40px;
+            color: #333;
+        }
+
+        .contactbtn:hover {
+            background-color: #666;
+            color: white;
+        }
+      h1 {
+            margin-top: 0;
+            text-decoration: underline;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            color: black;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px 9px;
+            text-align: center; 
+      }
+     
+ 
+       button{
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          background-color: #9ac4e7;
+          color: #fff;
+          cursor: pointer;
+      }
+      button:hover {
+          background-color: #96c6a1;
+      }
+      .search-bar, .upload-form {
+          margin: 20px 0;
+      }
+      .search-bar{
+        background-color: white;
+      }
+      .button {
+          background-color: #333;
+          color: white;
+          border: none;
+          padding: 8px 12px;
+          cursor: pointer;
+      }
+      .button:hover {
+          background-color: #555;
+      }
+      footer {
+            width: 100%;
+            background: #3586ff;
+            padding: 15px 10px;
+            position: relative; 
+            text-align: center;
+            margin-top: auto;
+        }
+
+        footer .social_icons,
+        footer .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        footer .social_icons li,
+        footer .menu li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        footer .menu li a {
+            color: #fff;
+            font-size: 19px;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.5s;
+        }
+
+        footer .menu li a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        footer p {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 17.6px;
+        }
+        footer .contact_info{
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+            float: top;
+        }
+        footer .page_num{
+            color:#fff;
+        }
+        .symbols{
+            font-family: arial, sans-serif;
+            color:#fff;
+        } 
+
+        form, #pdfList {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        input[type="submit"], button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px ;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 30px 0;
+            width: 100%;
+        }
+        input[type="submit"]:hover, button:hover {
+            background-color: #45a049;
+        }
+        
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .content-wrapper {
+            width: 50%; 
+            margin-right: auto; 
+            background-color: white; 
+            padding: 40px 20px;
+            border-radius: 7px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            min-height: 670px;
+        }
+        h3{
+            font-size: medium;
+            color:#f9f9f9;
+            font-family: "my-font", serif;
+            text-align: center;
+            margin-bottom:5px;
+            font-size: 17px;
+        }
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.2em; 
+            }
+
+            ul li a {
+                font-size: 1em; 
+            }
+
+            .contactbtn {
+                font-size: 0.9em; 
+            }
+
+            .content-wrapper {
+                padding: 20px; 
+            }
+
+            footer p {
+                font-size: 0.9em; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em; 
+            }
+
+            button, input[type="submit"] {
+                padding: 8px; 
+            }
+
+            input[type="file"], 
+            input[type="submit"] {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="ShareResources Page.html"><img src="city-technology-university-high-resolution-logo-black-transparent.png" width="360px" height="70px"></a>
+            </div>
+            <div class="navigation">
+            <ul>
+                <li><a href="Home Page.html">Home</a></li>
+                <li><a href="TimeTable Page.html">Timetable</a></li>
+                <li><a href="Discussions Page.html">Discussion</a></li>
+                <li><a href="ShareResources Page.html">Share Resources</a></li>
+                <li><a href="About us page.html">About Us</a></li>
+            </ul>
+        </div>
+            <a href="ContactUs page.html"><button class="contactbtn">Contact Us</button></a>
+        </nav>
+    </header>
+
+    <body>
+        <div class="content-wrapper">
+        <h1>PDF & Resource Uploads</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" required>
+            <input type="submit" value="Upload file">
+            <div id="message"></div>
+        </form>
+     
+        <div id="pdfList">
+            <h2>Files Uploaded</h2>
+            <table id="pdfTable">
+                <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        </div>
+     
+        <script>
+            document.getElementById('uploadForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                fetch('upload1.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(result => {
+                    document.getElementById('message').innerHTML = result;
+                    loadPDFs();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('message').innerHTML = 'An error occurred during upload.';
+                });
+            });
+     
+            function loadPDFs() {
+                fetch('upload1.php?action=list')
+                .then(response => response.json())
+                .then(pdfs => {
+                    const tbody = document.querySelector('#pdfTable tbody');
+                    tbody.innerHTML = '';
+                    pdfs.forEach(pdf => {
+                        const row = tbody.insertRow();
+                        row.insertCell(0).textContent = pdf.filename;
+                        const actionsCell = row.insertCell(1);
+                        actionsCell.innerHTML = `
+                            <button onclick="viewPDF(${pdf.id})">View</button>
+                            <button onclick="downloadPDF(${pdf.id})">Download</button>
+                        `;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+            }
+     
+            function viewPDF(id) {
+                window.open(`upload1.php?action=view&id=${id}`, '_blank');
+            }
+     
+            function downloadPDF(id) {
+                window.location.href = `upload1.php?action=download&id=${id}`;
+            }
+     
+            // Load PDFs when the page loads
+            loadPDFs();
+        </script>
+</body>
+
+ 
+<footer>
+<div><h3>ALGORITHM AVENGERS</h3></div>
+    <ul class="social_icons">
+        <li><a href="https://instagram.com"><img src="icons8-instagram-94.png" width="30px" height="30px" alt="Instagram"></a></li>
+        <li><a href="https://facebook.com"><img src="icons8-facebook-48.png" width="30px" height="30px" alt="Facebook"></a></li>
+        <li><a href="https://youtube.com"><img src="icons8-youtube-48.png" width="30px" height="30px" alt="YouTube"></a></li>
+        <li><a href="https://twitter.com"><img src="icons8-twitterx-50.png" width="30px" height="30px" alt="Twitter"></a></li>
+    </ul>
+    <ul class="menu">
+        <li><a href="Home Page.html">Home</a></li>
+        <li><a href="TimeTable Page.html">Timetable</a></li>
+        <li><a href="Discussions Page.html">Discussion</a></li>
+        <li><a href="ShareResources Page.html">Share Resources</a></li>
+        <li><a href="About us page.html">About Us</a></li>
+        <li><a href="ContactUs page.html">Contact Us</a></li>
+    </ul>
+    <div class="contact_info">
+        <p>Contact info<br>
+           +211 954 6583<br>
+           Inquires@CTUTechnologies.com
+        </p>
+    </div>
+    <div class="symbols">&#169;</div>
+    <p>City Technology University 2024. All Rights Reserved.</p>
+    <div class="page_num"><h3>4</h3></div>
+</footer>
+
+</html>
+
+

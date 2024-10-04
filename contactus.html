@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Buddy Portal Contact Us</title>
+    <style>
+        @font-face{
+            font-family:"contact";
+            src: url(Sacramento.ttf);
+        }
+        @font-face {
+            font-family: "customfont";
+            src: url(MADE\ Sunflower\ PERSONAL\ USE.otf);
+        }
+        @font-face {
+            font-family: "my-font";
+            src: url(Recoleta-RegularDEMO.otf);
+        }
+        @keyframes mymove{
+            0%   {top: 0px; left: 0px;}
+            25%  {top: 0px; left: 200px;}
+            50%  {top: 0px; right: 200px;}
+            100%  {top: 0px; left: 0px;}
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            background-color: #7B2AF1;
+            overflow-x: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width:100vw;
+            flex-wrap: wrap;
+        }
+        .navigation li:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width:100%;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .jumping-text{
+            font-family: "my-font",serif;
+            display: inline-flex;
+            gap: 10px;
+        }
+        .jumping-text span{
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .jumping-text span:hover{
+            transform: translateY(-10px);
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            display: inline;
+        }
+
+        ul li a {
+            font-family: "my-font", serif;
+            text-decoration: none;
+            color: #333;
+            font-size: 21px;
+            padding: 10px 15px;
+        }
+        
+        .contactbtn {
+            font-family: "my-font", serif;
+            background-color: #d6f947;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bolder;
+            margin-right: 40px;
+        }
+
+        .contactbtn:hover {
+            background-color: #666;
+            color: white;
+        }
+        .form-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            align-items: flex-start; 
+        }
+        .contact-form {
+            font-family: "my-font", serif;
+            flex: 1;
+            max-width: 50%;
+            color:#fff;
+        }
+        .contact-form h2 {
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .contact-form input, .contact-form textarea, .contact-form button {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 10px;
+        }
+        .contact-form button {
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+        }
+        .image-container img {
+            height: 50%;
+            border-radius: 10px;
+            border-color: #0056b3;
+            position: relative;
+            margin-top:100px;
+            margin-left: 100px;
+            animation: mymove 5s 1;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+        .personalcontact {
+            font-family: "contact", serif;
+            flex: 1;
+            color:#fff;
+            text-align: center; 
+            font-size: 2rem; 
+            margin: 20px 0;
+        }
+        .personalinfo h2{
+            font-family: "customfont", serif;
+        }
+        .personalinfo p {
+            font-family: "contact", serif;
+            color: #fff;
+            font-size: 25px; 
+            font-weight: 100;
+            text-align: center; 
+        }
+        .map-container iframe {
+            width: 100vw;
+            border: 0;
+            height: 400px;
+        }
+        .map-container h2 {
+            font-family: "customfont", serif;
+            text-align: center;
+            color:#fff;
+            font-size: 50px;
+        }
+        footer {
+            width: 100vm;
+            background: #3586ff;
+            padding: 15px 10px;
+            position: relative;
+            text-align: center;
+            margin-top: 0px;
+        }
+
+        footer .social_icons,
+        footer .menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        footer .social_icons li,
+        footer .menu li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        footer .menu li a {
+            color: #fff;
+            font-size: 19px;
+            text-decoration: none;
+            opacity: 0.75;
+            transition: 0.5s;
+        }
+
+        footer .menu li a:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+        footer p {
+            color: white;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 17.6px;
+        }
+        footer .contact_info {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: center;
+        }
+        footer .page_num {
+            color: #fff;
+        }
+        .symbols {
+            font-family: arial, sans-serif;
+            color: #fff;
+        }
+        .subscription-form {
+            display: flex;
+            justify-content: center; 
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column; 
+            max-width: 50%; 
+        }
+        h3{
+            font-size: medium;
+            color:#f9f9f9;
+            font-family: "my-font", serif;
+            text-align: center;
+            margin-bottom:5px;
+            font-size: 17px;
+        }
+
+        /* Tablets*/
+    @media (max-width: 768px) {
+        .contact-form,
+        .image-container {
+            max-width: 100%;
+    }
+
+        .form-wrapper {
+            flex-direction: column;
+    }
+
+        header {
+            text-align: center;
+    }
+
+        .logo img {
+            max-width: 80%;
+    }
+}
+
+/* Mobile devices */
+    @media (max-width: 480px) {
+        .contactbtn {
+        margin-right: 10px;
+    }
+
+        .navigation ul {
+            flex-direction: column;
+            align-items: center;
+    }
+
+        .personalcontact {
+            font-size: 1.5rem;
+    }
+
+        footer .menu {
+            flex-direction: column;
+    }
+
+        footer p {
+            font-size: 0.875rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="ContactUs Page.html"><img src="city-technology-university-high-resolution-logo-black-transparent.png" width="360px" height="70px"></a>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="Home Page.html">Home</a></li>
+                    <li><a href="TimeTable Page.html">Timetable</a></li>
+                    <li><a href="Discussions Page.html">Discussion</a></li>
+                    <li><a href="ShareResources Page.html">Share Resources</a></li>
+                    <li><a href="About us page.html">About Us</a></li>
+                </ul>
+            </div>
+            <a href="ContactUs page.html"><button class="contactbtn">Contact Us</button></a>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div class="form-wrapper">
+            <div class="contact-form">
+                <h2 class="jumping-text">
+                    <span>GET</span>
+                    <span>IN</span>
+                    <span>TOUCH</span>
+                </h2>
+                <form action="/submit" method="post">
+                    <label for="student_number">Student Number</label>
+                    <input type="number" id="student_number" name="student_number" required="required">
+                    
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required="required">
+                    
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required="required" spellcheck="true"></textarea>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="image-container">
+                <img src="download.jpeg" alt="Contact Us">
+            </div>
+        </div>
+        
+        <div class="contact-form">
+            <section class="container">
+                <div class="form-wrapper subscription-form">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <br>
+                    <form action="subscribe.php" method="post" onsubmit="return validateEmail();">
+                        <label for="subscriber_email">Email</label>
+                        <input type="email" id="subscriber_email" name="subscriber_email" required="required">
+                            <div class="subscribe"><button type="submit">Subscribe</button></div>
+                        </div>
+                    </form>
+                    
+                </div>   
+            </div>    
+        </div>
+    </section>
+    
+    <div class="personalcontact">The Team
+       <b> <div class="personalinfo">
+            <h2>Algorithm Avengers</h2>
+            <p>Karabo Siko</p>
+            <p>20240965</p>
+            <p>Fortune Nekokwane</p>
+            <p>20240731</p>
+            <p>Kamogelo Phaladi</p>
+            <p>20240802</p>
+        </div>
+    </div></b><br>
+
+    <div class="map-container">
+        <h2>FIND US</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.6552931218603!2d27.869005413636323!3d-26.142780036366005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e959f7b7787c027%3A0xd1450a9cd56b62ed!2sCTU%20Training%20Solutions%20Roodepoort!5e0!3m2!1sen!2sza!4v1724321826289!5m2!1sen!2sza" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div><br><br><br>
+    
+    <footer>
+    <div><h3>ALGORITHM AVENGERS</h3></div>
+        <ul class="social_icons">
+            <li><a href="https://instagram.com"><img src="icons8-instagram-94.png" width="30px" height="30px"></a></li>
+            <li><a href="https://facebook.com"><img src="icons8-facebook-48.png" width="30px" height="30px"></a></li>
+            <li><a href="https://youtube.com"><img src="icons8-youtube-48.png" width="30px" height="30px"></a></li>
+            <li><a href="https://twitter.com"><img src="icons8-twitterx-50.png" width="30px" height="30px"></a></li>
+        </ul>
+        <ul class="menu">
+            <li><a href="Home Page.html">Home</a></li>
+            <li><a href="TimeTable Page.html">Timetable</a></li>
+            <li><a href="Discussions Page.html">Discussion</a></li>
+            <li><a href="ShareResources Page.html">Share Resources</a></li>
+            <li><a href="About us page.html">About Us</a></li>
+            <li><a href="ContactUs page.html">Contact Us</a></li>
+        </ul>
+        <div class="contact_info">
+            <p>Contact info<br>
+            +211 954 6583<br>
+            Inquiries@CTUTechnologies.com
+            </p>
+        </div>
+        <div class="symbols">&#169;</div> 
+        <p>City Technology University 2024. All Rights Reserved.</p>
+        <div class="page_num"><h3>6</h3></div>
+    </footer>
+</body>
+</html>
